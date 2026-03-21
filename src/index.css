@@ -2,95 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 33% 5%;
+    --foreground: 0 0% 94%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 240 25% 9%;
+    --card-foreground: 0 0% 94%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 25% 9%;
+    --popover-foreground: 0 0% 94%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 100% 59%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 24 100% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 20% 14%;
+    --muted-foreground: 240 15% 60%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 240 20% 14%;
+    --accent-foreground: 0 0% 94%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 100% 59%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --success: 145 100% 45%;
+    --success-foreground: 0 0% 5%;
 
-    --radius: 0.5rem;
+    --info: 220 100% 58%;
+    --info-foreground: 0 0% 100%;
 
-    --sidebar-background: 0 0% 98%;
+    --border: 240 20% 16%;
+    --input: 240 20% 16%;
+    --ring: 0 100% 59%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --radius: 0.75rem;
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-background: 240 25% 7%;
+    --sidebar-foreground: 0 0% 94%;
+    --sidebar-primary: 0 100% 59%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 240 20% 14%;
+    --sidebar-accent-foreground: 0 0% 94%;
+    --sidebar-border: 240 20% 16%;
+    --sidebar-ring: 0 100% 59%;
+
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --danger-zone-bg: 0 100% 59%;
   }
 }
 
@@ -98,8 +63,104 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* Glass card */
+.glass {
+  background: hsla(240, 25%, 9%, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid hsl(240 20% 20%);
+}
+
+/* Map marker pulses */
+.pulse-blue {
+  width: 16px; height: 16px;
+  background: hsl(220 100% 58%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 hsla(220, 100%, 58%, 0.4);
+  animation: pulse-blue 2s infinite;
+}
+.pulse-red {
+  width: 14px; height: 14px;
+  background: hsl(0 100% 59%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 hsla(0, 100%, 59%, 0.4);
+  animation: pulse-red 1.5s infinite;
+}
+.dot-green {
+  width: 12px; height: 12px;
+  background: hsl(145 100% 45%);
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+@keyframes pulse-blue {
+  0% { box-shadow: 0 0 0 0 hsla(220,100%,58%,0.4); }
+  70% { box-shadow: 0 0 0 20px hsla(220,100%,58%,0); }
+  100% { box-shadow: 0 0 0 0 hsla(220,100%,58%,0); }
+}
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 0 0 hsla(0,100%,59%,0.4); }
+  70% { box-shadow: 0 0 0 20px hsla(0,100%,59%,0); }
+  100% { box-shadow: 0 0 0 0 hsla(0,100%,59%,0); }
+}
+
+/* SOS button pulse ring */
+@keyframes sos-pulse {
+  0% { box-shadow: 0 0 0 0 hsla(0,100%,59%,0.5); }
+  70% { box-shadow: 0 0 0 24px hsla(0,100%,59%,0); }
+  100% { box-shadow: 0 0 0 0 hsla(0,100%,59%,0); }
+}
+.sos-pulse {
+  animation: sos-pulse 1.8s infinite;
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  background: hsl(240, 33%, 5%) !important;
+  font-family: var(--font-body) !important;
+}
+.leaflet-popup-content-wrapper {
+  background: hsla(240, 25%, 9%, 0.9) !important;
+  backdrop-filter: blur(12px);
+  color: hsl(0 0% 94%) !important;
+  border: 1px solid hsl(240 20% 20%) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important;
+}
+.leaflet-popup-tip {
+  background: hsla(240, 25%, 9%, 0.9) !important;
+}
+.leaflet-popup-close-button {
+  color: hsl(0 0% 60%) !important;
+}
+.leaflet-control-zoom a {
+  background: hsla(240, 25%, 9%, 0.8) !important;
+  color: hsl(0 0% 94%) !important;
+  border-color: hsl(240 20% 20%) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(240 33% 5%); }
+::-webkit-scrollbar-thumb { background: hsl(240 20% 20%); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(240 20% 30%); }
+
+/* Counter animation */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
